@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<c:model
+        xmlns:c="urn:webdetails/com/2012"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="urn:webdetails/com/2012 ../../schema/com_2012.xsd"
+        xmlns="http://www.w3.org/1999/xhtml">
+
+    <c:complexType name="Pointing" space="pvc.options">
+        <c:documentation>
+            The options documentation class for the pointing behaviours.
+        </c:documentation>
+
+        <c:property name="mode" type="pvc.options.varia.PointingMode" default="'near'">
+            <c:documentation>
+                The desired pointing mode.
+            </c:documentation>
+        </c:property>
+        
+        <c:property name="radius" type="number" default="10">
+            <c:documentation>
+                The minimum distance, in pixels, that the pointer must be from the visual element
+                for it to be considered to be pointing to it
+                (applies to the <i>near</i> pointing mode only).
+                
+                The value must be non-negative and can be <tt>Infinity</tt>.
+
+                Applies to the <i>near</i> pointing mode only.
+            </c:documentation>
+        </c:property>
+
+        <c:property name="radiusHyst" type="number" default="4">
+            <c:documentation>
+                The minimum distance, in pixels,
+                that a new chosen point must be from the previously chosen point.
+
+                This parameter adds some hysteresis to the pointing behavior
+                in an effort to stabilize cases where small mouse moves
+                would cause frequent point change and alternation.
+
+                The value must be non-negative and finite.
+
+                The value <tt>0</tt> disables point change hysteresis.
+
+                Applies to the <i>near</i> pointing mode only.
+            </c:documentation>
+        </c:property>
+        
+        <c:property name="collapse" type="pvc.options.varia.PointingCollapse">
+            <c:documentation>
+                The position components that are to be ignored when determining the
+                distance between the pointer and a visual element.
+
+                Applies to the <i>near</i> pointing mode only.
+            </c:documentation>
+        </c:property>
+
+        <c:property name="stealClick" type="boolean" default="true">
+            <c:documentation>
+                Whether a click that occurs when an visual element is being pointed to
+                should be redirected to it.
+
+                Applies to the <i>near</i> pointing mode only.
+            </c:documentation>
+        </c:property>
+
+    </c:complexType>
+
+</c:model>

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<c:model
+        xmlns:c="urn:webdetails/com/2012"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="urn:webdetails/com/2012 ../../schema/com_2012.xsd"
+        xmlns="http://www.w3.org/1999/xhtml">
+
+    <c:complexType name="VisualRole" space="pvc.options">
+        <c:documentation>
+            The options documentation class of a visual role.
+
+            Where a visual role argument is expected,
+            a <tt>string</tt> value is also accepted,
+            with the content of what would be specified in
+            the property <c:link to="#dimensions" />.
+        </c:documentation>
+        <c:property name="dimensions" type="string">
+            <c:documentation>
+                A list of dimension names and respective
+                sort orders.
+
+                A dimensions string is similar to an SQL 'order by' clause,
+                like the following examples show:
+                <dl>
+                    <dt>
+                        <tt>"productType"</tt>
+                    </dt>
+                    <dd>
+                        the visual role is bound to the single dimension named <tt>"productType"</tt>,
+                        and data will be sorted in ascending order
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>
+                        <tt>"sales"</tt>
+                    </dt>
+                    <dd>
+                        the visual role is bound to the single dimension named <tt>"sales"</tt>,
+                        and data will be sorted in ascending order
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>
+                        <tt>"country, productType"</tt>
+                    </dt>
+                    <dd>
+                        the visual role is bound to the dimensions
+                        named <tt>"country"</tt> and <tt>"productType"</tt>,
+                        and data will be sorted first by
+                        <tt>"country"</tt>, in ascending order,
+                        and then by
+                        <tt>"productType"</tt>, in ascending order
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>
+                        <tt>"country desc, productType asc"</tt>
+                    </dt>
+                    <dd>
+                        the visual role is bound to the dimensions
+                        named <tt>"country"</tt> and <tt>"productType"</tt>,
+                        and data will be sorted first by
+                        <tt>"country"</tt>, in descending order,
+                        and then by
+                        <tt>"productType"</tt>, in ascending order
+                    </dd>
+                </dl>
+            </c:documentation>
+        </c:property>
+
+        <c:property name="isReversed" type="boolean" default="false">
+            <c:documentation>
+                Indicates that the visual role's data
+                should be ordered in reverse order
+                in relation to the sort orders specified in
+                <c:link to="#dimensions" />.
+
+                This option provides a quick way to reverse the order
+                of the whole visual role, without changing any partial
+                sort orders assigned to each dimension of the visual role.
+
+                This option can be used to reverse the order of
+                the data that is shown in a discrete axis.
+
+                See also <c:link to="pvc.options.VisualRole#from" />.
+            </c:documentation>
+        </c:property>
+
+        <c:property name="legend" type="pvc.options.VisualRoleLegend">
+            <c:documentation>
+                The legend options of a visual role.
+            </c:documentation>
+        </c:property>
+
+        <c:property name="from" type="string">
+            <c:documentation>
+                The <i>name</i> of another visual role
+                whose dimensions are to be used by this one.
+
+                This property takes precedence over <c:link to="pvc.options.VisualRole#dimensions" />.
+
+                If the source role is reversed,
+                this visual role's
+                <c:link to="pvc.options.VisualRole#isReversed" /> is toggled.
+
+                If this is a plot visual role and it is being
+                specified from within <c:link to="pvc.options.charts.BasicChart#plots" />,
+                then <c:link to="pvc.options.VisualRole#from" /> is relative to the enclosing plot.
+
+                To refer to a visual role of the <i>main</i> plot,
+                prefix the local name of the visual role with "main.", to obtain, for example, "main.series".
+
+                To refer, unambiguously, to a visual role of the <i>chart</i>,
+                prefix its local name with "$.", to obtain, for example, "$.multiChart".
+            </c:documentation>
+        </c:property>
+    </c:complexType>
+
+    <c:complexType name="VisualRoleLegend" space="pvc.options">
+        <c:documentation>
+            The options documentation class of the legend options of a visual role.
+
+            This class contains <i>normal</i> and <i>extension point</i> properties.
+        </c:documentation>
+
+        <c:property name="visible" type="boolean" default="true">
+            <c:documentation>
+                Indicates if the data and visual function
+                represented by the visual role can display a
+                legend describing it.
+
+                For example, this option allows hiding the color legend
+                for the data of a particular plot and color axis combination.
+                Contrast this option with that of the color axis,
+                <c:link to="pvc.options.axes.DiscreteColorAxis#legendVisible" />,
+                which totally hides the legend of a color axis.
+
+                The items in a legend are visible only if all the following are <tt>true</tt>tt>:
+                <ul>
+                    <li>their associated visual role's <c:link to="pvc.options.VisualRoleLegend#visible" /></li>
+                    <li>their associated color axis' <c:link to="pvc.options.axes.DiscreteColorAxis#legendVisible" /></li>
+                    <li>the chart's <c:link to="pvc.options.charts.Chart#legend" /></li>
+                </ul>
+            </c:documentation>
+        </c:property>
+
+        <c:property name="dot" type="pvc.options.marks.DotExtensionPoint">
+            <c:documentation>
+                The extension point of the dot mark of a legend item.
+            </c:documentation>
+        </c:property>
+
+        <c:property name="rule" type="pvc.options.marks.RuleExtensionPoint">
+            <c:documentation>
+                The extension point of the rule mark of a legend item.
+            </c:documentation>
+        </c:property>
+
+    </c:complexType>
+
+</c:model>

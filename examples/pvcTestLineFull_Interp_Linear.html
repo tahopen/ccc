@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CCC Samples - Line Chart Full</title>
+
+    <meta name="svg.render.forceflash" content="true">
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/lib/jquery.js"></script>
+
+    <script type="text/javascript" src="data/q01-01.js"></script>
+    <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/lib/protovis.js"></script>
+    <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/lib/protovis-msie.js"></script>
+    <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/lib/jquery.tipsy.js"></script>
+    <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/lib/tipsy.js"></script>
+    <link type="text/css" href="../ccc-js/src/main/javascript/package-res/lib/tipsy.css" rel="stylesheet"/>
+
+
+
+    <!-- @SCRIPTSBEG@ -->
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/shim.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/prologue.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/object.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/info.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/bit.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/fun.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/number.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/array.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/string.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/conversion.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/predicate.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/error.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/log.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/private.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/varia.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/qualifiedName.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/namespace.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/describe.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/mixin.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/create.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/attached.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/configure.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/type/inherit.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/type/overrides.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/type/methods.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/type/MetaType.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/type/Object.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/type/type.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/type/enum.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/type/classify.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/type/fields.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/id.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/collection/Set.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/collection/Map.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/collection/OrderedMap.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/EventSource.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/html.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/css.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/query.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/textTable.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/math.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/epilogue.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/cdo/_data.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/cdo/meta/dimensionType.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/cdo/meta/complexType.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/cdo/meta/complexTypeProject.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/cdo/atom.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/cdo/complex.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/cdo/complexView.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/cdo/datum.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/cdo/dimension.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/cdo/data/data.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/cdo/data/data.selected.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/cdo/data/data.operations.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/cdo/data/data-filtered.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/cdo/data/data-grouped.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/cdo/data/data.compat.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/cdo/oper/abstract-oper.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/cdo/oper/grouping-oper.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/cdo/oper/groupingSpec.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/cdo/oper/linear-interp-oper.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/cdo/oper/linear-interp-seriesState.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/cdo/oper/zero-interp-oper.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/cdo/oper/zero-interp-seriesState.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/cdo/translation/abstract-transl.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/cdo/translation/abstract-matrix-transl.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/cdo/translation/crosstab-transl.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/cdo/translation/relational-transl.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/cdo/format/number-formatStyle.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/cdo/format/number-format.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/cdo/format/date-format.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/cdo/format/custom-format.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/cdo/format/formatProvider.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/cdo/format/format-language.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/shims.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/prologue.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/extension.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/colorScheme.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/time.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/mark.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/value/enums.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/value/offset.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/value/percentValue.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/value/sides.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/value/size.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/abstract.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/optionsMgr.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/abstract-options.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/abstract-interactive.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/color.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/context.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/text.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/trends.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/spec.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/slidingWindow.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/scene/scene.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/scene/var.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/visualRole/visualRole.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/visualRole/visualRolesBinder.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/visualRole/visualRoleVarHelper.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/dataCell/dataCell.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/dataCell/color-dataCell.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/axis/axis.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/axis/color-axis.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/axis/size-axis.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/axis/normalized-axis.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/panel/panel/panel.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/panel/content-panel.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/plot/plot.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/plot/plot-panel.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/plot/plotBg-panel.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/panel/legend/legend-options.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/panel/legend/legend-panel.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/panel/legend/scene/legend-root-scene.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/panel/legend/scene/legend-group-scene.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/panel/legend/scene/legend-item-sceneSection.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/panel/legend/scene/legend-item-scene.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/panel/legend/scene/legend-item-scene.selection.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/panel/legend/scene/legend-item-scene.visibility.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/panel/legend/legendSymbolRenderer.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/panel/title/abstract-title-panel.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/panel/title/title-panel.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/panel/dockingGrid-panel.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/chart/chart.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/chart/chart.visualRoles.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/chart/chart.data.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/chart/chart.plots.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/chart/chart.axes.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/chart/chart.panels.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/chart/chart.selection.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/chart/chart.extension.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/chart/chart.activeScene.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/multi/multiChart-options.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/multi/multiChart-panel.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/multi/smallChart-options.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/sign/base-sign.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/sign/sign.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/sign/panel-sign.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/sign/label-sign.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/sign/value-label-sign.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/sign/dot-sign.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/sign/dotSizeColor-sign.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/sign/line-sign.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/sign/area-sign.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/sign/bar-sign.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/sign/rule-sign.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/cartesian/axis/discrete-bands-layout.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/cartesian/axis/cart-axis.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/cartesian/axis/root-cart-axis-scene.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/cartesian/axis/tick-cart-axis-scene.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/cartesian/axis/abstract-cart-axis-panel.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/cartesian/axis/cart-axis-title-panel.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/cartesian/cart-focusWindow.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/cartesian/ortho-cart-dataCell.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/cartesian/cart-plot.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/cartesian/cart-chart.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/cartesian/cart-dockingGrid-panel.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/cartesian/cart-plot-panel.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/categorical/categ-plot.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/categorical/categ-chart.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/categorical/categ-plot-panel.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/abstract-metricxy/abstract-metricxy-plot.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/abstract-metricxy/abstract-metricxy-chart.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/abstract-bar/abstract-bar-chart.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/abstract-bar/abstract-bar-plot.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/abstract-bar/abstract-bar-plot-panel.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/pie/pie-slice-sign.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/pie/pie-plot.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/pie/pie-plot-panel.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/pie/pie-chart.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/bar/bar-plot.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/bar/bar-plot-panel.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/bar/bar-chart.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/nbar/nbar-chart.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/water/water-plot.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/water/water-legend-group-scene.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/water/water-legend-item-scene.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/water/water-plot-panel.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/water/water-chart.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/point/point-plot.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/point/point-plot-panel.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/point/point-chart.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/scatter/scatter-plot.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/scatter/scatter-size-axis.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/scatter/scatter-plot-panel.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/scatter/scatter-chart.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/heatGrid/hg-plot.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/heatGrid/hg-plot-panel.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/heatGrid/hg-chart.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/box/box-plot.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/box/box-plot-panel.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/box/box-chart.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/treemap/treemap-plot.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/treemap/treemap-color-axis.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/treemap/treemap-plot-panel.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/treemap/treemap-chart.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/sunburst/sun-plot.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/sunburst/sun-color-axis.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/sunburst/sun-plot-panel.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/sunburst/sun-chart.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/sunburst/sun-slice-sign.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/bullet/bullet-plot.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/bullet/bullet-chart.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/parallel/par-chart.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/dataTree/dt-chart.js"></script>
+    <!-- @SCRIPTSEND@ -->
+
+
+    <link type="text/css" rel="stylesheet" href="pvcDocUtils.css"/>
+    <script type="text/javascript" src="pvcDocUtils.js"></script>
+    <script type="text/javascript">
+
+var lineExamplesShowProps = ['stacked', 'timeSeries', 'areasVisible', 'linesVisible', 'dotsVisible', 'nullInterpolationMode'];
+var baseExampleDef = {
+    dataVar: 'relational_01',
+    def: {
+        width: 1000,
+        animate: false,
+        legend:  true,
+        legendPosition: "right",
+        legendAlign: "top",
+        selectable:  true,
+        hoverable: true,
+        axisGrid: true,
+
+        extensionPoints: {
+            xAxisScale_dateTickFormat:    "%Y/%m/%d",
+            xAxisScale_dateTickPrecision: 798336000/1.5
+        },
+        areasVisible:  false,
+        dotsVisible:   false,
+        linesVisible:  false,
+        valuesVisible: false,
+        timeSeries: false,
+        timeSeriesFormat: "%Y-%m-%d",
+
+        nullInterpolationMode: 'linear', //'zero', 'linear'
+
+        /* Data format */
+        crosstabMode: false,
+        seriesInRows: false,
+        dimensions: { category: {valueType: Date, rawFormat: "%Y-%m-%d", format: "%Y/%m/%d" } },
+        extensionPoints: {
+          line_interpolate: 'cardinal',
+          area_interpolate: 'cardinal'
+        }
+     },
+     showProps: lineExamplesShowProps
+};
+
+var baseCategDef = def.create(baseExampleDef, {
+    def: {
+        dimensions: { category: {valueType: Date, isDiscrete: true, rawFormat: "%Y-%m-%d", format: "%Y/%m/%d" } }
+    }
+});
+
+pvc.examples.register(def.create(baseExampleDef, {
+    id: 'line01',
+    className: 'LineChart',
+    def: {
+        title:      "Timeseries Line Chart",
+        linesVisible:  true,
+        timeSeries: true
+     }
+}));
+
+pvc.examples.register(def.create(baseExampleDef, {
+    id: 'line02',
+    className: 'LineChart',
+    def: {
+        title:      "Timeseries Line Chart with Areas",
+        linesVisible:  true,
+        areasVisible:  true,
+        timeSeries: true
+     }
+}));
+
+pvc.examples.register(def.create(baseExampleDef, {
+    id: 'line02b',
+    className: 'LineChart',
+    def: {
+        title:      "Timeseries Line Chart with Areas and Dots",
+        linesVisible:  true,
+        areasVisible:  true,
+        dotsVisible:   true,
+        timeSeries: true
+     }
+}));
+
+pvc.examples.register(def.create(baseCategDef, {
+    id: 'line03',
+    className: 'LineChart',
+    def: {
+        title: "Categorical Line Chart",
+        linesVisible:  true
+     }
+}));
+
+pvc.examples.register(def.create(baseCategDef, {
+    id: 'line04',
+
+    className: 'LineChart',
+    def: {
+        title:     "Categorical Line Chart with Areas",
+        linesVisible: true,
+        areasVisible: true
+     }
+}));
+
+pvc.examples.register(def.create(baseCategDef, {
+    id: 'line04.1',
+    className: 'LineChart',
+    def: {
+        title: "Categorical Line Chart with Dots",
+        linesVisible:  true,
+        dotsVisible:  true
+     }
+}));
+
+
+pvc.examples.register(def.create(baseExampleDef, {
+  id: 'dot01',
+  className: 'DotChart',
+  def: {
+      title:      "Timeseries Dot Chart",
+      dotsVisible:   true,
+      timeSeries: true
+   }
+}));
+
+pvc.examples.register(def.create(baseCategDef, {
+  id: 'dot02',
+  className: 'DotChart',
+  def: {
+      title: "Categorical Dot Chart",
+      dotsVisible:   true
+   }
+}));
+
+// ----------------------
+
+pvc.examples.register(def.create(baseExampleDef, {
+    id: 'line05',
+    className: 'StackedLineChart',
+    def: {
+        title:      "Stacked Timeseries Line Chart",
+        stacked:    true,
+        timeSeries: true,
+        linesVisible:  true,
+        dotsVisible:   true
+     }
+}));
+
+
+pvc.examples.register(def.create(baseExampleDef, {
+    id: 'line06',
+    className: 'StackedAreaChart',
+    def: {
+        title:      "Stacked Timeseries Area Chart",
+        stacked:    true,
+        areasVisible:  true,
+        timeSeries: true
+     }
+}));
+
+pvc.examples.register(def.create(baseExampleDef, {
+    id: 'line07',
+    className: 'StackedLineChart',
+    def: {
+        title:      "Stacked Timeseries Area Chart with Lines",
+        stacked:    true,
+        linesVisible:  true,
+        areasVisible:  true,
+        timeSeries: true
+    }
+}));
+
+pvc.examples.register(def.create(baseCategDef, {
+    id: 'line08',
+    className: 'StackedLineChart',
+    def: {
+        title: "Stacked Categorical Line Chart",
+        stacked:   true,
+        linesVisible: true
+    }
+}));
+
+pvc.examples.register(def.create(baseCategDef, {
+    id: 'line09',
+    className: 'StackedAreaChart',
+    def: {
+        title:     "Stacked Categorical Area Chart",
+        stacked:   true,
+        areasVisible: true
+     }
+}));
+
+pvc.examples.register(def.create(baseCategDef, {
+    id: 'line10',
+    className: 'StackedLineChart',
+    def: {
+        title:     "Stacked Categorical Area Chart with Lines",
+        stacked:   true,
+        linesVisible: true,
+        areasVisible: true
+     }
+}));
+
+pvc.examples.register(def.create(baseCategDef, {
+    id: 'line11',
+    className: 'StackedAreaChart',
+    def: {
+        title:     "Stacked Categorical Area Chart with Lines and Dots",
+        areasVisible: true,
+        linesVisible: true,
+        dotsVisible:  true
+     }
+}));
+
+pvc.examples.register(def.create(baseExampleDef, {
+  id: 'dot03',
+  className: 'DotChart',
+  def: {
+      title:      "Stacked Timeseries Dot Chart",
+      stacked:    true,
+      dotsVisible:   true,
+      timeSeries: true
+   }
+}));
+
+pvc.examples.register(def.create(baseCategDef, {
+  id: 'dot04',
+  className: 'DotChart',
+  def: {
+      title: "Stacked Categorical Dot Chart",
+      stacked:    true,
+      dotsVisible:   true
+   }
+}));
+
+// ----------------------
+
+pvc.examples.register(def.create(baseCategDef, {
+    id: 'line12',
+    className: 'LineChart',
+    dataVar: 'relational_01_neg',
+    def: {
+        title:     "Categorical Line Chart with Negative Values",
+        linesVisible: true,
+        areasVisible: true
+     }
+}));
+
+
+pvc.examples.register(def.create(baseCategDef, {
+    id: 'line13',
+    className: 'LineChart',
+    dataVar: 'relational_01_neg',
+    def: {
+        title:     "Categorical Line Chart with Negative Values",
+        linesVisible: true,
+        areasVisible: true,
+        dotsVisible:  true
+     }
+}));
+
+pvc.examples.register(def.create(baseExampleDef, {
+    id: 'line14',
+    className: 'DotChart',
+    dataVar: 'testLDot2',
+    def: {
+        title:     "Numeric Category Dot/Line Chart with Negative Values",
+        areasVisible: false,
+        dotsVisible:  true,
+        linesVisible: true,
+        crosstabMode: true,
+        dimensions: {
+            category: {
+                valueType: Number, rawFormat: undefined, format: undefined
+            }
+        }
+     }
+}));
+
+pvc.examples.register(def.create(baseExampleDef, {
+    id: 'line15',
+    className: 'DotChart',
+    dataVar: 'testLDot2',
+    def: {
+        title:     "Numeric-discrete Category Dot Chart with Negative Values",
+        crosstabMode: true,
+        dotsVisible:   true,
+        linesVisible:  false,
+        dimensions: {
+            category: {
+                valueType: Number, rawFormat: undefined, format: undefined, isDiscrete: true
+            }
+        }
+     }
+}));
+
+pvc.examples.register(def.create(baseExampleDef, {
+    id: 'line16',
+    className: 'LineChart',
+    dataVar: 'relational_04',
+    def: {
+        title:      "Line chart with second axis",
+        linesVisible:  true,
+        areasVisible:  true,
+        dotsVisible:   false,
+        plot2: true,
+        plot2Series: ['Lisbon'],
+        plot2OrthoAxis: 2,
+        plot2ColorAxis: 2,
+        color2AxisColors: ['purple'],
+        valuesVisible: false,
+        dimensions: { category: {valueType: null, isDiscrete: true } }
+     }
+}));
+
+    </script>
+
+  </head>
+  <body>
+    <h1>
+
+      Line/Area/Dot Charts
+    </h1>
+    <div id="examples"></div>
+  </body>
+</html>

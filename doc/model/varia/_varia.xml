@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<c:model
+    xmlns:c="urn:webdetails/com/2012"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:webdetails/com/2012 ../../schema/com_2012.xsd"
+    xmlns="http://www.w3.org/1999/xhtml">
+
+    <c:space name="pvc.options.varia">
+        <c:documentation>
+            The namespace of various options-related helper types.
+        </c:documentation>
+    </c:space>
+
+    <!-- ATOMS -->
+    <c:include the="varia/atoms/chartClearSelectionMode.xml" />
+    <c:include the="varia/atoms/chartOrientation.xml" />
+    <c:include the="varia/atoms/panelAlignment.xml" />
+    <c:include the="varia/atoms/panelPosition.xml" />
+    <c:include the="varia/atoms/dimensionValueType.xml" />
+    <c:include the="varia/atoms/legendClickMode.xml" />
+    <c:include the="varia/atoms/dotShapeType.xml" />
+    <c:include the="varia/atoms/markAnchor.xml" />
+    <c:include the="varia/atoms/wedgeAnchor.xml" />
+    <c:include the="varia/atoms/nullInterpolationMode.xml" />
+    <c:include the="varia/atoms/axisDomainAlign.xml" />
+    <c:include the="varia/atoms/axisDomainScope.xml" />
+    <c:include the="varia/atoms/axisDomainRoundingMode.xml" />
+    <c:include the="varia/atoms/axisLabelRotationDirection.xml" />
+    <c:include the="varia/atoms/axisOverlappedLabelsMode.xml" />
+    <c:include the="varia/atoms/pieValuesLabelStyle.xml" />
+    <c:include the="varia/atoms/waterDirection.xml" />
+    <c:include the="varia/atoms/colorScaleType.xml" />
+    <c:include the="varia/atoms/tooltipGravity.xml" />
+    <c:include the="varia/atoms/lineAreaInterpolation.xml" />
+    <c:include the="varia/atoms/stroke.xml" />
+    <c:include the="varia/atoms/text.xml" />
+    <c:include the="varia/atoms/rectangleSide.xml" />
+    <c:include the="varia/atoms/colorString.xml" />
+    <c:include the="varia/atoms/contentOverflow.xml" />
+    <c:include the="varia/atoms/treemapLayoutMode.xml" />
+    <c:include the="varia/atoms/treemapColorMode.xml" />
+    <c:include the="varia/atoms/tooltipAutoContent.xml" />
+    <c:include the="varia/atoms/multiChartOverflow.xml" />
+    <c:include the="varia/atoms/valuesOverflow.xml" />
+    <c:include the="varia/atoms/boxLayoutMode.xml" />
+    <c:include the="varia/atoms/pointingMode.xml" />
+    <c:include the="varia/atoms/pointingCollapse.xml" />
+    <c:include the="varia/atoms/sliceOrder.xml" />
+    <c:include the="varia/atoms/sunburstColorMode.xml" />
+    <c:include the="varia/atoms/dataTypeCheckingMode.xml" />
+    <c:include the="varia/atoms/timeIntervals.xml" />
+    <c:include the="varia/atoms/legendOverflow.xml" />
+
+    <!-- FUNCTIONS -->
+    <c:include the="varia/functions/colorTransform.xml" />
+    <c:include the="varia/functions/dimensionComparer.xml" />
+    <c:include the="varia/functions/dimensionConverter.xml" />
+    <c:include the="varia/functions/dimensionFormatter.xml" />
+    <c:include the="varia/functions/dimensionKey.xml" />
+    <c:include the="varia/functions/dimensionsCalculation.xml" />
+    <c:include the="varia/functions/dimensionsReader.xml" />
+    <c:include the="varia/functions/numberFormatter.xml" />
+    <c:include the="varia/functions/selectionChangedAction.xml" />
+    <c:include the="varia/functions/standardAction.xml" />
+    <c:include the="varia/functions/tooltipFormatter.xml" />
+    <c:include the="varia/functions/userSelectionAction.xml" />
+    <c:include the="varia/functions/axisTickFormatter.xml" />
+    <c:include the="varia/functions/dataWhere.xml" />
+    <c:include the="varia/functions/slidingWindowFuns.xml" />
+
+    <!-- COMPLEX TYPES - AUXILIARY -->
+    <c:include the="varia/sides.xml" />
+    <c:include the="varia/size.xml" />
+    <c:include the="varia/tooltip.xml" />
+    <c:include the="varia/visualRole.xml" />
+    <c:include the="varia/pointing.xml" />
+    <c:include the="varia/compatFlags.xml" />
+
+</c:model>

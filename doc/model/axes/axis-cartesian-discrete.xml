@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<c:model
+    xmlns:c="urn:webdetails/com/2012"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:webdetails/com/2012 ../../schema/com_2012.xsd"
+    xmlns="http://www.w3.org/1999/xhtml">
+
+    <c:complexType name="DiscreteCartesianAxis"
+                   space="pvc.options.axes"
+                   base="pvc.options.axes.CartesianAxis"
+                   abstract="true"
+                   use="expanded"
+                   facets="pvc.options.axes.DiscreteCartesianAxisFacet 
+                           pvc.options.axes.DiscreteCartesianAxisTicksFacet">
+        <c:documentation>
+            The options documentation class of the cartesian axis panel
+            for discrete scale type.
+
+            For additional information, please see <c:link to="pvc.options.axes.CartesianAxis" />.
+        </c:documentation>
+
+    </c:complexType>
+
+    <c:complexType name="FlattenedDiscreteCartesianAxis"
+                   space="pvc.options.axes"
+                   base="pvc.options.axes.DiscreteCartesianAxis"
+                   use="expanded"
+                   facets="pvc.options.axes.CartesianAxisTicksFacet">
+        <c:documentation>
+            The options documentation class of the cartesian axis panel
+            for flattened and discrete scale type.
+
+            For additional information, please see <c:link to="pvc.options.axes.CartesianAxis" />.
+        </c:documentation>
+
+        <c:property name="extensionPoints" type="pvc.options.ext.FlattenedDiscreteCartesianAxisExtensionPoints" category="Style" expandUse="optional">
+            <c:documentation>
+                The extension points object contains style definitions for
+                the marks of the panel.
+            </c:documentation>
+        </c:property>
+    </c:complexType>
+
+    <c:complexType name="FlattenedDiscreteCartesianAxisExtensionPoints"
+                   space="pvc.options.ext"
+                   use="expanded"
+                   base="pvc.options.ext.CartesianAxisExtensionPoints"
+                   facets="pvc.options.ext.CartesianAxisTicksExtensionPointsFacet">
+        <c:documentation>
+            The extension points of the cartesian axis panel
+            for flattened and discrete scale type.
+
+            Axes extension points can also be specified directly at the chart options level.
+
+            To use an extension point you must find its full name, by joining:
+            <ol>
+                <li>panel property name (ex: <tt>xAxis</tt>)</li>
+                <li>extension property (ex: <tt>ticks</tt>)</li>
+                <li>the "_" character</li>
+                <li>extension sub-property (ex: <tt>lineWidth</tt>)</li>
+            </ol>
+            and obtaining, for the examples, the camel-cased name: <tt>xAxisTicks_lineWidth</tt>
+            (see <c:link to="http://en.wikipedia.org/wiki/CamelCase" />).
+        </c:documentation>
+    </c:complexType>
+
+
+    <c:complexType name="AnyDiscreteCartesianAxis"
+                   space="pvc.options.axes"
+                   base="pvc.options.axes.DiscreteCartesianAxis"
+                   use="expanded"
+                   facets="pvc.options.axes.CartesianAxisTicksFacet
+                           pvc.options.axes.DiscreteCartesianAxisTicksFacet">
+        <c:documentation>
+            The options documentation class of the cartesian axis panel
+            for any discrete scale type.
+
+            For additional information, please see <c:link to="pvc.options.axes.CartesianAxis" />.
+        </c:documentation>
+
+        <c:property name="composite" type="boolean" default="false" category="Discrete > General">
+            <c:documentation>
+                Indicates if the axis should show
+                discrete multi-dimensional data in
+                a hierarchical form, when <tt>true</tt>,
+                or a flattened form, when <tt>false</tt>
+                (applies to discrete axes).
+
+                Flattened axes,
+                present multi-dimensional roles by joining the
+                multiple values' labels with the separator character:
+                <c:link to="pvc.options.charts.BasicChart#groupedLabelSep" />.
+            </c:documentation>
+        </c:property>
+
+        <c:property name="extensionPoints" type="pvc.options.ext.AnyDiscreteCartesianAxisExtensionPoints" category="Style" expandUse="optional">
+            <c:documentation>
+                The extension points object contains style definitions for
+                the marks of the panel.
+            </c:documentation>
+        </c:property>
+    </c:complexType>
+
+    <c:complexType name="AnyDiscreteCartesianAxisExtensionPoints"
+                   space="pvc.options.ext"
+                   use="expanded"
+                   base="pvc.options.ext.CartesianAxisExtensionPoints"
+                   facets="pvc.options.ext.CartesianAxisTicksExtensionPointsFacet">
+        <c:documentation>
+            The extension points of the cartesian axis panel
+            for any discrete scale type.
+
+            Axes extension points can also be specified directly at the chart options level.
+
+            To use an extension point you must find its full name, by joining:
+            <ol>
+                <li>panel property name (ex: <tt>xAxis</tt>)</li>
+                <li>extension property (ex: <tt>ticks</tt>)</li>
+                <li>the "_" character</li>
+                <li>extension sub-property (ex: <tt>lineWidth</tt>)</li>
+            </ol>
+            and obtaining, for the examples, the camel-cased name: <tt>xAxisTicks_lineWidth</tt>
+            (see <c:link to="http://en.wikipedia.org/wiki/CamelCase" />).
+        </c:documentation>
+    </c:complexType>
+
+    <c:facetType name="DiscreteCartesianAxisFacet" space="pvc.options.axes">
+        <c:documentation>
+            The options documentation class of the cartesian axis panel
+            for discrete scale types.
+        </c:documentation>
+
+        <!-- TODO: consider defining a Tooltip type, like that of the chart tooltip option -->
+        <c:property name="tooltipEnabled" type="boolean" default="true" category="Discrete > General">
+            <c:documentation>
+                Indicates if the axis' labels show tooltips (applies to discrete axes).
+            </c:documentation>
+        </c:property>
+
+        <c:property name="tooltipFormat" type="pvc.options.varia.TooltipFormatter" category="Discrete > General">
+            <c:documentation>
+                A callback function that is called to build the tooltip of an axis' labels (applies to discrete axes).
+
+                If the chart's <c:link to="pvc.options.Tooltip#html" /> is <tt>true</tt>,
+                the resulting text must be valid HTML,
+                otherwise,
+                it is considered plain text.
+
+                When unspecified
+                and <c:link to="#tooltipEnabled" /> is <tt>true</tt>
+                a tooltip is automatically generated according to the value of
+                <c:link to="#tooltipAutoContent" />.
+            </c:documentation>
+        </c:property>
+
+        <c:property name="tooltipAutoContent" type="pvc.options.varia.TooltipAutoContent" default="'value'" category="Discrete > General">
+            <c:documentation>
+                Indicates the type of automatic content generated for the tooltip of axis' labels (applies to discrete axes).
+            </c:documentation>
+        </c:property>
+
+        <!-- This option is being excluded from CDE because it would be hard to exclude it
+             for certain chart types, and the existing panelSizeRatio already
+             exposes the common case only on supporting chart types -->
+        <c:property name="bandSizeRatio" type="number" category="Discrete > Layout" excludeIn="cde">
+            <c:documentation>
+                The ratio of the band size over the
+                total size (band + spacing),
+                in a discrete axis band (applies to discrete axes).
+
+                A number between <tt>0</tt> and <tt>1</tt>.
+
+                The default value of this property is that of the legacy option <i>panelSizeRatio</i>,
+                defined for the Bar-family, Box-Plot and the Heat-Grid charts.
+
+                This option is only used when
+                the band model is under-constrained
+                by the fixed, minimum, and maximum size and spacing options.
+
+                See <c:link to="#bandSize" /> for information on the band layout algorithm.
+            </c:documentation>
+        </c:property>
+
+        <c:property name="bandSize" type="number" category="Discrete > Layout">
+            <c:documentation>
+                The size, in pixels, of the bands used to represent the discrete domain values (applies to discrete axes).
+
+                A non-negative number.
+
+                <p>
+                    <b>In multi-charts</b>
+
+                    The current layout algorithm used by multi-charts does not support
+                    minimum, fixed or maximum sizes in small charts.
+                    As such, the simples band size ratio model always needs to be used.
+
+                    The minimum, fixed and maximum sizes and spacings are used to determine an
+                    equivalent or best-possible band size ratio.
+                </p>
+
+                <p>
+                    <b>Band Size, Spacing, Ratio and Step</b>
+
+                    The band layout arranges bands and space in the following way.
+                    Taking <i>B</i> to represent <i>bandSize</i>,
+                    <i>E</i> to represent <c:link to="#bandSpacing" /> and
+                    <i>e</i> to be <tt>E/2</tt>,
+                    bands and space will follow the pattern:
+
+                    <tt>eBe</tt>, <tt>eBEBe</tt>, <tt>eBEBEBe</tt>, ...
+
+                    For a given pair of <i>B</i> and <i>E</i>, each discrete category will occupy a space given by
+                    the <i>step</i>, <i>S</i>:<br/>
+
+                    <i>S = B + E</i>.
+
+                    Given the number of discrete categories, a cartesian panel (axis or plot) will have
+                    corresponding fixed or minimum and maximum sizes.
+
+                    The option <c:link to="#bandSizeRatio" />, R, is used, in under-constrained cases,
+                    to relate <i>B</i> and <i>E</i>:<br/>
+
+                    <i>B = R * S</i>
+                </p>
+
+                <p>
+                    <b>Impact on chart size</b>
+
+                    If the chart size along the axis' dimension
+                    is such that the available space is less than the
+                    determined fixed or minimum size,
+                    then the chart will grow as much as needed to accommodate the fixed or minimum size,
+                    along that dimension.
+
+                    If, on the contrary, the chart size along the axis' dimension
+                    is greater than the determined fixed or maximum size,
+                    the plot and axis content will be centered in the available space.
+                </p>
+
+                <p>
+                    <b>Option values harmonization</b>
+
+                    When both <c:link to="#bandSizeMax" /> and <c:link to="#bandSizeMin" /> are specified,
+                    and <c:link to="#bandSizeMax" /> is less than or equal to <i>bandSizeMin</i>,
+                    then <c:link to="#bandSize" /> is set to the the minimum value.
+
+                    When both <i>bandSize</i> and <c:link to="#bandSizeMin" /> are specified,
+                    and <i>bandSize</i> is less than <i>bandSizeMin</i>,
+                    then the minimum value is used instead.
+
+                    When both <i>bandSpacing</i> and <c:link to="#bandSpacingMin" /> are specified,
+                    and <i>bandSpacing</i> is less than <i>bandSpacingMin</i>,
+                    then the minimum value is used instead.
+
+                    When both <c:link to="#bandSpacingMax" /> and <c:link to="#bandSpacingMin" /> are specified,
+                    and <c:link to="#bandSpacingMax" /> is less than or equal to <i>bandSpacingMin</i>,
+                    then <c:link to="#bandSpacing" /> is set to the the minimum value.
+                </p>
+
+                <p>
+                    <b>The algorithm</b>
+
+                    The options you specify should just behave as you'd expected them to.
+                    At least, after thinking about them for a while.
+
+                    If doubts remain on which options and values should be specified,
+                    or on why the specified options are behaving in a certain way,
+                    you can follow this explanation of the band layout algorithm.
+                </p>
+                <ul>
+                    <li>
+                        When both <i>bandSize</i> and <c:link to="#bandSpacing" /> are specified, the layout is <b>fixed</b>.
+
+                        When they both have the value <tt>0</tt>, then the layout is reevaluated as if they had not been specified.
+
+                        The option <c:link to="#bandSizeRatio" /> is ignored.
+                    </li>
+                    <li>
+                        When one and only one of <i>bandSize</i> or <c:link to="#bandSpacing" /> is specified,
+                        the layout is <b>partially fixed</b>.
+
+                        For the variable option, size or spacing,
+                        any specified minimum and/or maximum options are still considered.
+
+                        This configuration does not define a fixed step size,
+                        but instead constrains the range of step size values.
+
+                        The option <c:link to="#bandSizeRatio" /> is ignored.
+                    </li>
+                    <li>
+                        When neither <i>bandSize</i> nor <c:link to="#bandSpacing" /> are specified,
+                        the layout is <b>strictly variable</b>.
+
+                        There are several cases:
+                        <ul>
+                            <li>
+                                When none of the minimum and maximum values, of both size and spacing, are specified,
+                                the size and spacing are governed solely by the <c:link to="#bandSizeRatio" />, <i>R</i>.
+
+                                This is the way the band layout used to behave,
+                                before the existence of the fixed, minimum and maximum options.
+
+                                Small-charts continue to behave this way,
+                                although with a band size ratio that is determined from the
+                                the other specified options.
+
+                                The half-line <i>(E,B)</i> departs from <i>(0,0)</i>
+                                and goes on indefinitely with a slope given by <i>R</i>: <i>E = (1/R - 1) * B</i>.
+                            </li>
+                            <li>
+                                <p>
+                                    When minimum and maximum values, of both size and spacing, are specified,
+                                    the size and spacing are constrained to belong to the
+                                    line segment <i>(E,B)</i>, that goes from point <i>(Emin,Bmin)</i> to point <i>(Emax,Bmax)</i>.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    When only the minimum size and spacing values are specified,
+                                    the size and spacing are constrained to belong to the
+                                    line segment <i>(E,B)</i>, that goes from point <i>(0,0)</i> to point <i>(Emin,Bmin)</i>.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    When only the maximum size and spacing values are specified,
+                                    the size and spacing are constrained to belong to the
+                                    line segment <i>(E,B)</i>, that goes from point <i>(0,0)</i> to point <i>(Emax,Bmax)</i>.
+                                </p>
+                            </li>
+                            <li>
+                                In all the following mixed and under-constrained cases,
+                                option <c:link to="#bandSizeRatio" />, <i>R</i>, is taken into account.
+
+                                The size and spacing are constrained to belong to the the line <i>(E,B)</i> that
+                                passes through <i>(0,0)</i> and has a slope
+                                given by <i>R</i>: <i>E = (1/R - 1) * B</i>.
+
+                                Again, a few more cases:
+                                <ul>
+                                    <li>
+                                        <p>
+                                            When only the minimum and maximum size values are specified,
+                                            the corresponding spacing values are implied.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            When only the minimum and maximum spacing values are specified,
+                                            the corresponding size values are implied.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        When only the minimum size and the maximum spacing values are specified,
+                                        the specified minimum size implies a minimum spacing and
+                                        the specified maximum spacing implies a maximum size.
+
+                                        If the implied minimum spacing is greater than or equal to the specified
+                                        maximum spacing, the algorithm is reevaluated using a fixed spacing
+                                        equal to the implied minimum spacing.
+                                    </li>
+                                    <li>
+                                        When only the maximum size and the minimum spacing values are specified,
+                                        the specified maximum size implies a maximum spacing and
+                                        the specified minimum spacing implies a minimum size.
+
+                                        If the implied minimum size is greater than or equal to the specified
+                                        maximum size, the algorithm is reevaluated using a fixed size
+                                        equal to the implied minimum size.
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+                See other band-control options:
+                <c:link to="#bandSpacing" />,
+                <c:link to="#bandSizeMin" />,
+                <c:link to="#bandSizeMax" />,
+                <c:link to="#bandSpacingMin" />,
+                <c:link to="#bandSpacingMax" /> and,
+                for charts that give it representation,
+                <c:link to="#bandSizeRatio" />.
+            </c:documentation>
+        </c:property>
+
+        <c:property name="bandSpacing" type="number" category="Discrete > Layout">
+            <c:documentation>
+                The space, in pixels, separating/surrounding bands (applies to discrete axes).
+
+                A non-negative number.
+
+                See <c:link to="#bandSize" /> for information on the band layout algorithm.
+            </c:documentation>
+        </c:property>
+
+        <c:property name="bandSizeMin" type="number" category="Discrete > Layout">
+            <c:documentation>
+                The minimum size, in pixels, of the bands used to represent the discrete domain values (applies to discrete axes).
+
+                A non-negative number.
+
+                See <c:link to="#bandSize" /> for information on the band layout algorithm.
+            </c:documentation>
+        </c:property>
+
+        <c:property name="bandSizeMax" type="number" category="Discrete > Layout">
+            <c:documentation>
+                The maximum size, in pixels, of the bands used to represent the discrete domain values (applies to discrete axes).
+
+                A non-negative number.
+
+                See <c:link to="#bandSize" /> for information on the band layout algorithm.
+            </c:documentation>
+        </c:property>
+
+        <c:property name="bandSpacingMin" type="number" category="Discrete > Layout">
+            <c:documentation>
+                The minimum space, in pixels, separating/surrounding bands (applies to discrete axes).
+
+                A non-negative number.
+
+                See <c:link to="#bandSize" /> for information on the band layout algorithm.
+            </c:documentation>
+        </c:property>
+
+        <c:property name="bandSpacingMax" type="number" category="Discrete > Layout">
+            <c:documentation>
+                The maximum space, in pixels, separating/surrounding bands (applies to discrete axes).
+
+                A non-negative number.
+
+                See <c:link to="#bandSize" /> for information on the band layout algorithm.
+            </c:documentation>
+        </c:property>
+
+        <c:property name="clickAction" type="pvc.options.varia.StandardAction" category="Discrete > Actions">
+            <c:documentation>
+                A callback function that is called
+                when the user clicks on a tick label
+                (applies to discrete axes).
+            </c:documentation>
+        </c:property>
+
+        <c:property name="doubleClickAction" type="pvc.options.varia.StandardAction" category="Discrete > Actions">
+            <c:documentation>
+                A callback function that is called
+                when the user double-clicks on a tick label
+                (applies to discrete axes).
+            </c:documentation>
+        </c:property>
+    </c:facetType>
+
+</c:model>

@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CCC playground</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/lib/jquery.js"></script>
+    <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/lib/protovis.js"></script>
+    <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/lib/protovis-msie.js"></script>
+    <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/lib/jquery.tipsy.js"></script>
+    <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/lib/tipsy.js"></script>
+    <link type="text/css" href="../ccc-js/src/main/javascript/package-res/lib/tipsy.css" rel="stylesheet"/>
+
+    <script type="text/javascript" src="data/q01-01.js"></script>
+
+
+
+    <!-- @SCRIPTSBEG@ -->
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/shim.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/prologue.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/object.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/info.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/bit.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/fun.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/number.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/array.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/string.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/conversion.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/predicate.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/error.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/log.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/private.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/varia.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/qualifiedName.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/namespace.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/describe.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/mixin.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/create.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/attached.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/configure.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/type/inherit.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/type/overrides.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/type/methods.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/type/MetaType.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/type/Object.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/type/type.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/type/enum.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/type/classify.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/type/fields.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/id.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/collection/Set.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/collection/Map.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/collection/OrderedMap.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/EventSource.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/html.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/css.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/query.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/textTable.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/math.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/def/epilogue.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/cdo/_data.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/cdo/meta/dimensionType.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/cdo/meta/complexType.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/cdo/meta/complexTypeProject.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/cdo/atom.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/cdo/complex.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/cdo/complexView.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/cdo/datum.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/cdo/dimension.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/cdo/data/data.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/cdo/data/data.selected.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/cdo/data/data.operations.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/cdo/data/data-filtered.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/cdo/data/data-grouped.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/cdo/data/data.compat.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/cdo/oper/abstract-oper.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/cdo/oper/grouping-oper.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/cdo/oper/groupingSpec.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/cdo/oper/linear-interp-oper.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/cdo/oper/linear-interp-seriesState.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/cdo/oper/zero-interp-oper.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/cdo/oper/zero-interp-seriesState.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/cdo/translation/abstract-transl.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/cdo/translation/abstract-matrix-transl.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/cdo/translation/crosstab-transl.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/cdo/translation/relational-transl.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/cdo/format/number-formatStyle.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/cdo/format/number-format.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/cdo/format/date-format.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/cdo/format/custom-format.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/cdo/format/formatProvider.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/cdo/format/format-language.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/shims.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/prologue.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/extension.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/colorScheme.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/time.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/mark.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/value/enums.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/value/offset.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/value/percentValue.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/value/sides.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/value/size.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/abstract.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/optionsMgr.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/abstract-options.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/abstract-interactive.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/color.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/context.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/text.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/trends.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/spec.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/slidingWindow.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/scene/scene.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/scene/var.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/visualRole/visualRole.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/visualRole/visualRolesBinder.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/visualRole/visualRoleVarHelper.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/dataCell/dataCell.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/dataCell/color-dataCell.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/axis/axis.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/axis/color-axis.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/axis/size-axis.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/axis/normalized-axis.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/panel/panel/panel.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/panel/content-panel.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/plot/plot.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/plot/plot-panel.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/plot/plotBg-panel.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/panel/legend/legend-options.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/panel/legend/legend-panel.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/panel/legend/scene/legend-root-scene.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/panel/legend/scene/legend-group-scene.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/panel/legend/scene/legend-item-sceneSection.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/panel/legend/scene/legend-item-scene.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/panel/legend/scene/legend-item-scene.selection.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/panel/legend/scene/legend-item-scene.visibility.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/panel/legend/legendSymbolRenderer.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/panel/title/abstract-title-panel.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/panel/title/title-panel.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/panel/dockingGrid-panel.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/chart/chart.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/chart/chart.visualRoles.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/chart/chart.data.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/chart/chart.plots.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/chart/chart.axes.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/chart/chart.panels.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/chart/chart.selection.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/chart/chart.extension.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/chart/chart.activeScene.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/multi/multiChart-options.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/multi/multiChart-panel.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/multi/smallChart-options.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/sign/base-sign.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/sign/sign.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/sign/panel-sign.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/sign/label-sign.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/sign/value-label-sign.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/sign/dot-sign.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/sign/dotSizeColor-sign.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/sign/line-sign.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/sign/area-sign.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/sign/bar-sign.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/base/sign/rule-sign.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/cartesian/axis/discrete-bands-layout.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/cartesian/axis/cart-axis.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/cartesian/axis/root-cart-axis-scene.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/cartesian/axis/tick-cart-axis-scene.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/cartesian/axis/abstract-cart-axis-panel.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/cartesian/axis/cart-axis-title-panel.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/cartesian/cart-focusWindow.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/cartesian/ortho-cart-dataCell.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/cartesian/cart-plot.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/cartesian/cart-chart.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/cartesian/cart-dockingGrid-panel.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/cartesian/cart-plot-panel.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/categorical/categ-plot.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/categorical/categ-chart.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/core/categorical/categ-plot-panel.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/abstract-metricxy/abstract-metricxy-plot.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/abstract-metricxy/abstract-metricxy-chart.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/abstract-bar/abstract-bar-chart.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/abstract-bar/abstract-bar-plot.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/abstract-bar/abstract-bar-plot-panel.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/pie/pie-slice-sign.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/pie/pie-plot.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/pie/pie-plot-panel.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/pie/pie-chart.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/bar/bar-plot.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/bar/bar-plot-panel.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/bar/bar-chart.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/nbar/nbar-chart.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/water/water-plot.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/water/water-legend-group-scene.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/water/water-legend-item-scene.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/water/water-plot-panel.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/water/water-chart.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/point/point-plot.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/point/point-plot-panel.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/point/point-chart.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/scatter/scatter-plot.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/scatter/scatter-size-axis.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/scatter/scatter-plot-panel.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/scatter/scatter-chart.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/heatGrid/hg-plot.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/heatGrid/hg-plot-panel.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/heatGrid/hg-chart.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/box/box-plot.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/box/box-plot-panel.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/box/box-chart.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/treemap/treemap-plot.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/treemap/treemap-color-axis.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/treemap/treemap-plot-panel.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/treemap/treemap-chart.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/sunburst/sun-plot.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/sunburst/sun-color-axis.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/sunburst/sun-plot-panel.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/sunburst/sun-chart.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/sunburst/sun-slice-sign.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/bullet/bullet-plot.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/bullet/bullet-chart.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/parallel/par-chart.js"></script>
+        <script type="text/javascript" src="../ccc-js/src/main/javascript/package-res/ccc/plugin/dataTree/dt-chart.js"></script>
+    <!-- @SCRIPTSEND@ -->
+
+
+
+  </head>
+  <body>
+
+    <h1>
+      CCC playground
+    </h1>
+
+    <h1>Dot</h1>
+
+    <div id="pvcDot1"></div>
+    <div id="pvcDot2"></div>
+    <div id="pvcDot3"></div>
+
+    <h1>Line</h1>
+    <div id="pvcLine1"></div>
+    <div id="pvcLine2"></div>
+    <div id="pvcLine3"></div>
+
+    <br/>
+
+    <div id="pvcLine4"></div>
+    <div id="pvcLine5"></div>
+    <div id="pvcLine6"></div>
+
+    <br/>
+
+    <h1>Stacked Line</h1>
+    <div id="pvcStackedLine1"></div>
+    <div id="pvcStackedLine2"></div>
+    <div id="pvcStackedLine3"></div>
+
+    <h1>Stacked Area</h1>
+    <div id="pvcStackedArea1"></div>
+    <div id="pvcStackedArea2"></div>
+    <div id="pvcStackedArea3"></div>
+
+
+    <h1>Bar</h1>
+    <div id="pvcBar1"></div>
+    <div id="pvcBar2"></div>
+    <div id="pvcBar3"></div>
+    <div id="pvcBar5"></div>
+
+
+    <h1>Pie</h1>
+    <div id="pvcPie1"></div>
+    <div id="pvcPie2"></div>
+    <div id="pvcPie3"></div>
+
+    <script type="text/javascript">
+
+      // enable debug
+      if(!def.debug) def.setDebug(1);
+
+      pv.listenForPageLoad(function() {
+
+        var dot1 = new pvc.DotChart({
+          // legendPosition: "left",
+          canvas: "pvcDot1",
+          width: 300,
+          height: 200,
+          animate: true,
+          selectable: true,
+          title: "Dot chart",
+          titlePosition: "bottom",
+          titleSize: 20,
+          legend: true,
+          legendPosition: "left",
+
+          //legendSize: 30,
+          yAxisSize: 30,
+          xAxisSize: 30,
+
+          orientation: 'vertical',
+          extensionPoints: {
+            noDataMessage_text: "Example of a chart with missing data"
+          }
+        });
+
+
+        //dot1.setData(relational_01, {crosstabMode: false, seriesInRows: true});
+        dot1.render();
+
+
+
+
+        var dot2 = new pvc.DotChart({
+          // legendPosition: "left",
+          canvas: "pvcDot2",
+          width: 400,
+          height: 200,
+          animate: true,
+          selectable: true,
+          title: "Dot chart - Timeseries ",
+          titlePosition: "left",
+          titleSize: 30,
+          legend: true,
+          legendPosition: "left",
+
+          tooltipEnabled: false,
+          //legendSize: 20,
+
+          orientation: 'vertical',
+          timeSeries: true,
+          timeSeriesFormat: "%Y-%m-%d",
+
+          valuesVisible: true,
+          valuesAnchor: "left",
+          axisOffset: 0.1
+
+        });
+        dot2.setData(relational_01, {crosstabMode: false, seriesInRows: false});
+        dot2.render();
+
+
+        var dot3 = new pvc.DotChart({
+          // legendPosition: "left",
+          canvas: "pvcDot3",
+          width: 400,
+          height: 200,
+          animate: true,
+          selectable: true,
+          title: "Dot chart - Extra options",
+          titlePosition: "bottom",
+          titleSize: 40,
+          legend: true,
+          legendPosition: "right",
+          legendSize: 100,
+
+          orientation: 'vertical',
+          dimensions: { category: {valueType: Date, rawFormat: "%Y-%m-%d", format: "%Y-%m-%d" } },
+          valuesVisible: false,
+          yAxisSize: 30,
+          xAxisSize: 30,
+          xAxisGrid: true,
+          yAxisGrid: true,
+          extensionPoints: {
+            titleLabel_font: "13px serif",
+            xAxisLabel_textAngle: 0.4,
+            xAxisLabel_textAlign: "center",
+            xAxisLabel_textBaseline: "top",
+
+            xAxisLabel_textStyle: "black",
+            xAxisLabel_text: function(d){
+                return pv.Format.date('%m-%d').format(d.vars.tick.value);
+            },
+            //dot_strokeStyle: "white",
+            dot_fillStyle: "white",
+            dot_shape: "square",
+            dot_shapeRadius: 4
+          }
+
+        });
+
+
+        dot3.setData(relational_01, {crosstabMode: false, seriesInRows: false});
+        dot3.render();
+
+
+        // Test of pvc in standalone mode
+        var line = new pvc.LineChart({
+          // legendPosition: "left",
+          canvas: "pvcLine1",
+          width: 400,
+          height: 200,
+          title: "line chart - vertical",
+          titlePosition: "top",
+          titleSize: 40,
+          legend: true,
+          legendPosition: "top",
+          legendAlign: "right",
+          //legendSize: null,
+          selectable: true,
+          orientation: 'vertical',
+          timeSeries: true,
+          timeSeriesFormat: "%Y-%m-%d",
+
+          valuesVisible: false,
+          dotsVisible: false,
+          showXScale: true,
+          //showYScale: true,
+          yAxisPosition: "right",
+          yAxisSize: 30,
+          //xAxisPosition: "bottom",
+          xAxisSize: 30,
+
+          //xAxisGrid: true,
+          //yAxisGrid: true,
+          extensionPoints: {
+            xAxisScale_dateTickFormat: "%Y/%m/%d",
+            xAxisScale_dateTickPrecision: 798336000/1.5 //set in miliseconds
+          }
+
+        });
+
+        line.setData(relational_01, {crosstabMode: false, seriesInRows: false});
+        line.render();
+
+        var line2 = new pvc.LineChart({
+          // legendPosition: "left",
+          canvas: "pvcLine2",
+          width: 300,
+          height: 200,
+          animate: true,
+          selectable: true,
+          title: "line chart - standard with dots",
+          titlePosition: "top",
+          titleSize: 40,
+          legend: true,
+          legendPosition: "top",
+          legendAlign: "right",
+          //legendSize: null,
+
+          orientation: 'horizontal',
+          timeSeries: true,
+          timeSeriesFormat: "%Y-%m-%d",
+
+          valuesVisible: false,
+          dotsVisible: true,
+          yAxisSize: 40,
+          xAxisSize: 30,
+          xAxisGrid: true,
+          yAxisGrid: true
+
+        });
+
+        line2.setData(relational_01, {crosstabMode: false, seriesInRows: false});
+        line2.render();
+
+        var line3 = new pvc.LineChart({
+          // legendPosition: "left",
+          canvas: "pvcLine3",
+          width: 300,
+          height: 200,
+          animate: true,
+          selectable: true,
+          title: "line chart - Timeseries with extra options",
+          titlePosition: "top",
+          titleSize: 40,
+          legend: true,
+          legendPosition: "top",
+          legendAlign: "right",
+          //legendSize: null,
+
+          orientation: 'vertical',
+          timeSeries: true,
+          timeSeriesFormat: "%Y-%m-%d",
+
+          valuesVisible: false,
+          dotsVisible: true,
+          yAxisSize: 30,
+          xAxisSize: 30,
+          xAxisGrid: true,
+          yAxisGrid: true,
+          extensionPoints: {
+            titleLabel_font: "13px serif",
+            //dot_strokeStyle: "white",
+            dot_fillStyle: "white",
+            dot_shape: "square",
+            dot_lineWidth: 2,
+            dot_shapeRadius: 4,
+            line_lineWidth: 0.5
+          }
+
+        });
+
+        line3.setData(relational_01, {crosstabMode: false, seriesInRows: false});
+        line3.render();
+
+                var line4 = new pvc.LineChart({
+                    // legendPosition: "left",
+                    canvas: "pvcLine4",
+                    width: 300,
+                    height: 200,
+                    animate: true,
+                    selectable: true,
+                    title: "line chart with all constant data",
+                    titlePosition: "top",
+                    titleSize: 40,
+                    legend: true,
+                    legendPosition: "top",
+                    legendAlign: "right",
+                    dimensions: { category: {valueType: Date, rawFormat: "%Y-%m-%d", format: "%Y-%m-%d" } },
+                    dotsVisible: true,
+                    axisGrid: true,
+                    extensionPoints: {
+                        titleLabel_font: "13px serif",
+                        dot_fillStyle: "white",
+                        dot_shape: "square",
+                        dot_lineWidth: 2,
+                        dot_shapeRadius: 4,
+                        line_lineWidth: 0.5
+                    }
+
+                });
+
+
+                line4.setData(constant_01, {crosstabMode: false, seriesInRows: false});
+                line4.render();
+
+                var line5 = new pvc.LineChart({
+                    // legendPosition: "left",
+                    canvas: "pvcLine5",
+                    width: 300,
+                    height: 200,
+                    animate: true,
+                    selectable: true,
+                    title: "line chart with several series of constant data",
+                    titlePosition: "top",
+                    titleSize: 40,
+                    legend: true,
+                    legendPosition: "top",
+                    legendAlign: "right",
+                    dimensions: { category: {valueType: Date, rawFormat: "%Y-%m-%d", format: "%Y-%m-%d" } },
+                    dotsVisible: true,
+                    axisGrid: true,
+                    extensionPoints: {
+                        titleLabel_font: "13px serif",
+                        dot_fillStyle: "white",
+                        dot_shape: "square",
+                        dot_lineWidth: 2,
+                        dot_shapeRadius: 4,
+                        line_lineWidth: 0.5
+                    }
+
+                });
+
+                line5.setData(constant_02, {crosstabMode: false, seriesInRows: false});
+                line5.render();
+                var line6 = new pvc.LineChart({
+                    // legendPosition: "left",
+                    canvas: "pvcLine6",
+                    width: 300,
+                    height: 200,
+                    animate: true,
+                    selectable: true,
+                    title: "line chart with all zero data",
+                    titlePosition: "top",
+                    titleSize: 40,
+                    legend: true,
+                    legendPosition: "top",
+                    legendAlign: "right",
+                    dimensions: { category: {valueType: Date, rawFormat: "%Y-%m-%d", format: "%Y-%m-%d" } },
+                    dotsVisible: true,
+                    axisGrid: true,
+                    extensionPoints: {
+                        titleLabel_font: "13px serif",
+                        dot_fillStyle: "white",
+                        dot_shape: "square",
+                        dot_lineWidth: 2,
+                        dot_shapeRadius: 4,
+                        line_lineWidth: 0.5
+                    }
+
+                });
+
+                line6.setData(constant_03, {crosstabMode: false, seriesInRows: false});
+                line6.render();
+
+
+        // Test of pvc in standalone mode
+        var stackedLine = new pvc.StackedLineChart({
+          // legendPosition: "left",
+          canvas: "pvcStackedLine1",
+          width: 500,
+          height: 200,
+          title: "stacked line chart - vertical",
+          titlePosition: "top",
+          titleSize: 40,
+          legend: true,
+          selectable: true,
+          legendPosition: "top",
+          legendAlign: "right",
+          //legendSize: null,
+
+          orientation: 'vertical',
+
+          dimensions: { category: {valueType: Date, rawFormat: "%Y-%m-%d", format: "%m/%d" } },
+
+          valuesVisible: false,
+          dotsVisible: false,
+          showXScale: true,
+          //showYScale: true,
+          yAxisPosition: "left",
+          yAxisSize: 30,
+          //xAxisPosition: "bottom",
+          xAxisSize: 30
+          //xAxisGrid: true,
+          //yAxisGrid: true,
+
+
+        });
+
+        stackedLine.setData(relational_01, {crosstabMode: false, seriesInRows: false});
+        stackedLine.render();
+
+        var stackedLine2 = new pvc.StackedLineChart({
+
+          // legendPosition: "left",
+          canvas: "pvcStackedLine2",
+          width: 300,
+          height: 200,
+          animate: true,
+          selectable: true,
+          title: "stacked line chart - Timeseries with dots",
+          titlePosition: "top",
+          titleSize: 40,
+
+          legend: false,
+          legendPosition: "top",
+          legendAlign: "right",
+          //legendSize: null,
+
+          orientation: 'vertical',
+          timeSeries: true,
+          timeSeriesFormat: "%Y-%m-%d",
+          //axisOffset: 0.12,
+
+          valuesVisible: false,
+          dotsVisible: true,
+          yAxisSize: 30,
+          xAxisSize: 30,
+          xAxisGrid: true,
+          yAxisGrid: true
+
+        });
+
+        stackedLine2.setData(relational_01, {crosstabMode: false, seriesInRows: false});
+        stackedLine2.render();
+
+        var stackedLine3 = new pvc.StackedLineChart({
+          // legendPosition: "left",
+          canvas: "pvcStackedLine3",
+          width: 300,
+          height: 200,
+          animate: false,
+          selectable: true,
+          title: "stacked line chart - Timeseries with extra options",
+          titlePosition: "top",
+          titleSize: 40,
+          legend: true,
+          legendPosition: "top",
+          legendAlign: "right",
+          //legendSize: null,
+
+          orientation: 'vertical',
+          timeSeries: true,
+          timeSeriesFormat: "%Y-%m-%d",
+
+          valuesVisible: false,
+          dotsVisible: true,
+          yAxisSize: 30,
+          xAxisSize: 30,
+          xAxisGrid: true,
+          yAxisGrid: true,
+          extensionPoints: {
+            titleLabel_font: "13px serif",
+            //dot_strokeStyle: "white",
+            dot_fillStyle: "white",
+            dot_shape: "square",
+            dot_lineWidth: 2,
+            dot_shapeRadius: 4,
+            line_lineWidth: 0.5
+
+
+          }
+
+        });
+
+        stackedLine3.setData(relational_01, {crosstabMode: false, seriesInRows: false});
+        stackedLine3.render();
+
+
+
+
+        // Test of pvc in standalone mode
+        var stackedArea = new pvc.StackedAreaChart({
+          // legendPosition: "left",
+          canvas: "pvcStackedArea1",
+          width: 400,
+          height: 200,
+          selectable: true,
+          title: "area chart - categorical",
+          titlePosition: "top",
+          titleSize: 40,
+          legend: true,
+          legendPosition: "top",
+          legendAlign: "right",
+
+          orientation: 'vertical',
+          linesVisible: false,
+          dimensions: { category: {valueType: Date, rawFormat: "%Y-%m-%d", format: "%m/%d" } },
+
+          yAxisPosition: "left",
+          yAxisSize: 30,
+
+          xAxisSize: 30,
+          xAxisGrid: true
+        });
+
+        stackedArea.setData(relational_01, {crosstabMode: false, seriesInRows: false});
+        stackedArea.render();
+
+        var stackedArea2 = new pvc.StackedAreaChart({
+          // legendPosition: "left",
+          canvas: "pvcStackedArea2",
+          width: 300,
+          height: 200,
+          animate: true,
+          selectable: true,
+          title: "area chart - timeseries",
+          titlePosition: "top",
+          titleSize: 40,
+          legend: true,
+          legendPosition: "top",
+          legendAlign: "right",
+          //legendSize: null,
+
+          orientation: 'vertical',
+          timeSeries: true,
+          timeSeriesFormat: "%Y-%m-%d",
+
+          valuesVisible: false,
+          yAxisSize: 30,
+          xAxisSize: 30,
+          xAxisGrid: true,
+          yAxisGrid: true
+
+        });
+
+        stackedArea2.setData(relational_01, {crosstabMode: false, seriesInRows: false});
+        stackedArea2.render();
+
+        var stackedArea3 = new pvc.StackedAreaChart({
+          // legendPosition: "left",
+          canvas: "pvcStackedArea3",
+          width: 400,
+          height: 200,
+          animate: false,
+          selectable: true,
+          title: "area chart - huge dataset",
+          titlePosition: "top",
+          titleSize: 40,
+          legend: true,
+          legendPosition: "top",
+          legendAlign: "right",
+          //legendSize: null,
+
+          orientation: 'vertical',
+          timeSeries: true,
+          timeSeriesFormat: "%Y-%m-%d",
+
+          yAxisSize: 30,
+          xAxisSize: 30,
+          xAxisGrid: true,
+          yAxisGrid: true
+        });
+
+        stackedArea3.setData(crosstab_01, {crosstabMode: true, seriesInRows: false});
+        stackedArea3.render();
+
+        // -----------------
+
+        var bar1 = new pvc.BarChart({
+          canvas: "pvcBar1",
+          width:  400,
+          height: 300,
+          title:  "Bar chart",
+
+          legend: true,
+          orientation: 'vertical',
+          stacked:    true,
+          selectable: true,
+          valuesVisible: false,
+          extensionPoints: {
+              xAxisLabel_textAngle: -1,
+              xAxisLabel_textAlign: "center",
+              xAxisLabel_textBaseline: "top"
+           }
+        });
+
+        bar1.setData(relational_01, {crosstabMode: false, seriesInRows: false});
+        bar1.render();
+
+        // -----------------
+
+        var bar2 = new pvc.BarChart({
+          canvas: "pvcBar2",
+          width: 400,
+          height: 300,
+          title: "Stacked Barline chart",
+          titlePosition: "top",
+          titleSize: 20,
+          legend: true,
+          legendPosition: "left",
+          legendSize: null,
+          selectable: true,
+          orientation: 'vertical',
+          stacked: true,
+          tooltipEnabled: false,
+          //barSizeMax: 100,
+
+          valuesVisible: true,
+          yAxisPosition: "left",
+          xAxisPosition: "bottom",
+          yAxisGrid: true,
+          axisBandSizeRatio: 0.9,
+          barSizeRatio: 0.8,
+
+          plot2: true,
+          plot2OrthoAxis: 2,
+          plot2ColorAxis: 2,
+          color2AxisColors: "red",
+          ortho2AxisOriginIsZero: true,
+          axisOffset: 0.1,
+          extensionPoints: {
+             xAxisLabel_textAngle: -1,
+             xAxisLabel_textAlign: "center",
+             xAxisLabel_textBaseline: "top"
+          }
+        });
+
+        bar2.setData(relational_01, {crosstabMode: false, seriesInRows: false});
+        bar2.render();
+
+        var bar3 = new pvc.BarChart({
+          canvas: "pvcBar3",
+          width: 400,
+          height: 300,
+          title: "Horizontal Bar chart",
+          titlePosition: "bottom",
+          titleSize: 20,
+          legend: true,
+          legendPosition: "right",
+          legendSize: null,
+          selectable: true,
+          orientation: 'horizontal',
+          stacked: false,
+          //barSizeMax: 100,
+
+          valuesVisible: true,
+          showXScale: true,
+          showYScale: true,
+          yAxisPosition: "left",
+
+          yAxisSize: 80,
+          xAxisPosition: "bottom",
+          xAxisSize: 20,
+          xAxisGrid: false,
+          yAxisGrid: false,
+
+          axisBandSizeRatio: 1,
+          barSizeRatio: 0.75
+
+        });
+
+        bar3.setData(relational_01, {crosstabMode: false, seriesInRows: false});
+        bar3.render();
+
+
+        var bar5 = new pvc.NormalizedBarChart({
+            canvas: "pvcBar5",
+            width: 400,
+            height: 300,
+            title: "100% Stacked Bar Chart",
+            orientation: 'vertical',
+            animate:false,
+            clickable: true,
+            selectable: true,
+            legend:true,
+            legendPosition:"right",
+            extensionPoints: {
+                xAxisLabel_textAngle: -1,
+                xAxisLabel_textAlign: "center",
+                xAxisLabel_textBaseline: "top"
+            }
+        });
+
+
+
+        bar5.setData(relational_01,
+            {crosstabMode: false,
+            seriesInRows: false});
+        bar5.render();
+
+        /* Pie chart */
+        var pie = new pvc.PieChart({
+          // legendPosition: "left",
+          canvas: "pvcPie1",
+          width: 600,
+          height: 400,
+          title: "My title",
+          titlePosition: "left",
+          titleSize: 40,
+          legend: true,
+          legendPosition: "right", //top, bottom, left, right
+          legendAlign: "right", //left, center, right || top, middle, bottom
+          // legendSize: null,
+          legendDrawLine:   true,
+          legendDrawMarker: false,
+          tooltipEnabled: true,
+          //legendMarkerSize: 15,
+
+          innerGap: 0.9,
+          valuesVisible: true,
+          explodedSliceIndex: 4,
+          explodedSliceRadius: 15,
+
+          numberPosition: 0,
+
+          extensionPoints: {
+            base_fillStyle: "red",
+            title_fillStyle: "yellow",
+            titleLabel_font: "16px sans-serif",
+            // title_strokeStyle: "black",
+            // titleLabel_bottom: 0,
+            // titleLabel_textAlign: "left",
+            legend_fillStyle: "green",
+            chart_fillStyle: "#eee"
+            //slice_strokeStyle: "white"
+            //slice_innerRadius: 200
+            //sliceLabel_textAngle: "0"
+          }
+
+        });
+
+        pie.setData($.extend(true, {},relational_03), {crosstabMode: false, seriesInRows: false});
+        pie.render();
+
+
+        var crosstab01 = new pvc.BaseChart({});
+        crosstab01.setData(crosstab_01, {crosstabMode: true, seriesInRows: false});
+        crosstab01.render();
+
+
+        // Testing some other datasets:
+        var relational = new pvc.BaseChart({});
+        relational.setData(relational_01, {crosstabMode: false, seriesInRows: false});
+        relational.render();
+
+
+        var relational2 = new pvc.BaseChart({});
+        relational2.setData(relational_02, {crosstabMode: false, seriesInRows: false});
+        relational2.render();
+
+      });
+
+    </script>
+  </body>
+</html>
