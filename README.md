@@ -10,7 +10,6 @@ If you want to know more, checkout the [CCC site](https://webdetails.github.io/c
 #### Pre-requisites for building the project:
 * Maven, version 3+
 * Java JDK 1.8
-* This [settings.xml](https://raw.githubusercontent.com/pentaho/maven-parent-poms/master/maven-support-files/settings.xml) in your <user-home>/.m2 directory
 
 #### Building it
 
@@ -21,9 +20,6 @@ mvn clean install
 The build result will be a Pentaho Plugin located in *assembly/target/ccc-***.zip*. Then, this package can be dropped
 inside your system folder.
 
-For issue tracking and bug report please use http://jira.pentaho.com/browse/CCC. Its master
-branch is built upon commit merges in Jenkins Continuous Integration located in
-http://ci.pentaho.com/job/ccc/
 
 #### Building the example site:
 
