@@ -1,4 +1,4 @@
-# Community Charting Components
+# Tahopen Community Charting Components
 
 **CCC** is a charting library for web documents.
 It can generate charts in SVG or VML (for IE8 support).
